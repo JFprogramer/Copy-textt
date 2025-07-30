@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap');
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: url('https://as1.ftcdn.net/jpg/00/61/32/74/1000_F_61327476_gGZGSgXS4DHMjWSGuN1Q94MhxkmGsssO.webp') no-repeat center center fixed;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+
+.overlay {
+    background: rgba(255,255,255,0.85);
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+}
+
+h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #2563eb;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #fff8;
+    z-index: 2;
+    position: relative;
+}
+
+h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    color: #2563eb;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    position: relative;
+}
+
+.form-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    margin-bottom: 32px;
+    position: relative;
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+    color: transparent; /* Ukrywa tekst "Nie wybrano pliku" */
+    width: 200px;
+    text-align: center;
+}
+
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"]::file-selector-button {
+    background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 38px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px #3a7bd533;
+    outline: none;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover,
+input[type="file"]::file-selector-button:hover {
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    box-shadow: 0 4px 16px #00d2ff33;
+}
+
+input[type="file"]::-ms-value { color: transparent; }
+input[type="file"]::file-selector-text { color: transparent; }
+input[type="file"]::-webkit-file-upload-text { color: transparent; }
+input[type="file"]::after {
+    content: "";
+    display: none;
+}
+
+button {
+    background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 38px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    min-width: 140px;
+    box-shadow: 0 2px 12px #3a7bd533;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    box-shadow: 0 4px 16px #00d2ff33;
+}
+
+#arrow-anim {
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    font-size: 2.5rem;
+    color: #3a7bd5;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#arrow-anim.active {
+    opacity: 1;
+    animation: arrow-move 0.8s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+@keyframes arrow-move {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(10px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(60px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(80px);
+    }
+}
+
+textarea {
+    width: 96vw;
+    max-width: 1400px;
+    min-height: 350px;
+    border-radius: 12px;
+    border: 1.5px solid #3a7bd5;
+    padding: 20px;
+    font-size: 1.15rem;
+    background: #f9fafbcc;
+    resize: vertical;
+    margin: 0 auto 40px auto;
+    display: block;
+    font-family: 'Montserrat', 'Consolas', monospace;
+    box-shadow: 0 2px 12px #3a7bd522;
+}
+
+@media (max-width: 700px) {
+    .form-center {
+        width: 98vw;
+        gap: 24px;
+    }
+    textarea {
+        width: 96vw;
+        min-width: 0;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    h2 {
+        font-size: 1.1rem;
+    }
+}
