@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR - Wyciąganie tekstu ze zdjęcia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Wgraj zdjęcie z tekstem</h1>
+    <form method="post" enctype="multipart/form-data">
+    <div class="form-center">
+        <input type="file" name="image" id="fileInput" accept="image/*" required>
+        <div id="arrow-anim">&#8595;</div>
+        <button type="submit" id="submitBtn">Wyślij</button>
+    </div>
+</form>
+    {% if extracted_text %}
+        <h2>Wyciągnięty tekst:</h2>
+        <textarea rows="10" cols="80">{{ extracted_text }}</textarea>
+    {% endif %}
+</body>
+</html>
